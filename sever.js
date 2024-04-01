@@ -15,6 +15,8 @@ app.get("/", function (request, response) {
 const cate = require("./routers/categoryRouter");
 app.use("/admin", cate); //phan cap router /admin/..
 
+const account= require("./routers/accountRouter");
+app.use("/admin", account);
 //ket noi csdl
 mongoose.connect("mongodb://localhost:27017/shop_fruits", {
     useNewUrlParser: true,

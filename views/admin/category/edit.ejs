@@ -21,7 +21,12 @@
                     <div class="mb-3 row">
                       <label class="col-sm-2">Name</label>
                       <div class="col-sm-10">
-                        <input type="text" name="name" class="form-control" />
+                        <input
+                          type="text"
+                          name="name"
+                          class="form-control"
+                          value="<%- loadData.name %>"
+                        />
                       </div>
                     </div>
                     <div class="line"></div>
@@ -32,7 +37,8 @@
                         <input
                           type="text"
                           class="form-control"
-                          name="keyword"
+                          name="keywords"
+                          value="<%- loadData.keywords %>"
                         />
                       </div>
                     </div>
@@ -45,6 +51,7 @@
                           type="password"
                           name="desc"
                           class="form-control"
+                          value="<%- loadData.desc %>"
                         />
                       </div>
                     </div>
@@ -55,13 +62,9 @@
                       <div class="col-sm-10">
                         <div class="col-sm-10">
                           <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="status"
-                              value="1"
-                              checked
-                            />
+                            <input class="form-check-input" type="radio"
+                            name="status" value="1" <%= loadData.status==1 ?
+                            "checked":"" %> />
                             <label
                               class="form-check-label"
                               for="flexRadioDefault1"
@@ -70,12 +73,9 @@
                             </label>
                           </div>
                           <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="radio"
-                              name="status"
-                              value="0"
-                            />
+                            <input class="form-check-input" type="radio"
+                            name="status" value="0" <%= loadData.status==0 ?
+                            "checked":"" %> />
                             <label
                               class="form-check-label"
                               for="flexRadioDefault2"
@@ -112,4 +112,3 @@
     </div>
   </body>
 </html>
-  

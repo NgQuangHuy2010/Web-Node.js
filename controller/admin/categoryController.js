@@ -15,7 +15,7 @@ const categoryController = {
     try {
       var data = new category({
         name: req.body.name,
-        keywords: req.body.keyword,
+        keywords: req.body.keywords,
         desc: req.body.desc,
         status: req.body.status,
       });
@@ -36,9 +36,9 @@ const categoryController = {
   },
   editCategory: async (req, res) => {
   try {
-  
- 
-    res.render("admin/category/edit", { layout: "layout/Admin" });
+    
+  const data= await category.findById(req.params.id);
+    res.render("admin/category/edit", { layout: "layout/Admin",loadData: data });
   } catch (error) {
     console.error(error);
     
