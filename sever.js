@@ -11,12 +11,17 @@ app.set("views", "./views");
 app.get("/", function (request, response) {
   response.render("test");
 });
-
+//group link url
+//category
 const cate = require("./routers/categoryRouter");
 app.use("/admin", cate); //phan cap router /admin/..
-
+//account
 const account= require("./routers/accountRouter");
 app.use("/admin", account);
+//products
+const products= require("./routers/productsRouter");
+app.use("/admin", products);
+////////////////////
 //ket noi csdl
 mongoose.connect("mongodb://localhost:27017/shop_fruits", {
     useNewUrlParser: true,
