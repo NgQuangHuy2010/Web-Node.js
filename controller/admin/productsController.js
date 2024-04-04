@@ -1,6 +1,6 @@
 const products = require("../../model/products");
 const path=require("path");
-
+const fs=require("fs");
 const productsController = {
   listProducts: async (req, res) => {
     var data = await products.find();
@@ -32,9 +32,9 @@ const productsController = {
   },
   deleteProducts:async (req, res) => {
     try {
-      const  dataOld= await products.find({_id:req.params.id});
-    //   fs.unlink(path.join(_di));
-    //   console.log(dataOld);
+      const dataOld = await products.findOne({ _id: req.params.id })
+      fs.unlinkSync("./public/assets/file/"+dataOld.image)
+      await products.findOneAndDelete({_id: req.params.id });
       res.redirect("/admin/products");
 
     } catch (error) {
