@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="body" class="active">
+      <div class="content">
+        <div class="container">
+          <div class="page-title">
+            <h3>Forms</h3>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <form action="" method="post" enctype="multipart/form-data">
+                    <div class="mb-3 row">
+                      <label class="col-sm-2">Name</label>
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          name="name"
+                          class="form-control"
+                          value="<%- loadData.name %>"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <br />
+                    <div class="mb-3 row">
+                      <label class="col-sm-2">Price</label>
+                      <div class="col-sm-10">
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="price"
+                          value="<%- loadData.price %>"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <br />
+                    <div class="mb-3 row">
+                      <label class="col-sm-2">Desc</label>
+                      <div class="col-sm-10">
+                        <input
+                          type="password"
+                          name="desc"
+                          class="form-control"
+                          value="<%- loadData.desc %>"
+                        />
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <br>
+                    <div class="mb-3 row">
+                        <label class="col-sm-2">Image</label>
+                        <div class="col-sm-10">
+                          <input
+                            type="file"
+                            name="image"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    <br />
+                    <div class="mb-3 row">
+                      <label class="col-sm-2">Status</label>
+                      <div class="col-sm-10">
+                        <div class="col-sm-10">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio"
+                            name="status" value="1" <%= loadData.status==1 ?
+                            "checked":"" %> />
+                            <label
+                              class="form-check-label"
+                              for="flexRadioDefault1"
+                            >
+                              Active
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio"
+                            name="status" value="0" <%= loadData.status==0 ?
+                            "checked":"" %> />
+                            <label
+                              class="form-check-label"
+                              for="flexRadioDefault2"
+                            >
+                              Disabled
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="line"></div>
+                    <br />
+
+                    <div class="mb-3 row">
+                      <div class="col-sm-4 offset-sm-2">
+                        <a
+                          href="/admin/products"
+                          class="btn btn-secondary mb-2"
+                        >
+                          <i class="fas fa-times"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary mb-2">
+                          <i class="fas fa-save"></i> Save
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

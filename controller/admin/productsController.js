@@ -41,5 +41,38 @@ const productsController = {
         console.log(error);
     }
   },
+  editProducts:async (req, res) => {
+    try {
+    
+      const data= await products.findById(req.params.id);
+        res.render("admin/products/edit", { layout: "layout/Admin",loadData: data });
+      } catch (error) {
+        console.error(error);
+        
+      }
+  },
+  editPostProducts:async (req,res)=>{
+    try {
+      const image=req.file ? req.file.filename : null;
+      if (image) {
+        const data= await products.findById(req.params.id);
+        fs.unlinkSync("./public/assets/file/"+data.image);
+      const newdata = {
+        name: req.body.name,
+        desc: req.body.desc,
+        price: req.body.price,
+        status: req.body.status,
+        image:image
+    }
+    await products.findByIdAndUpdate(req.params.id, newdata);
+      } else {
+      await products.findByIdAndUpdate(req.params.id, req.body);
+        
+      }
+      res.redirect("/admin/products");
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };
 module.exports = productsController;
